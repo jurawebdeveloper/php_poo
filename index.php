@@ -1,5 +1,6 @@
 <?php
-	echo 'Hello world!';
+	echo 'Hello world!' . '<br>' . PHP_EOL;
+	echo 'Hello world 2!' . '<br>' . PHP_EOL;
 ?>
 <!DOCTYPE html>
 <html>
