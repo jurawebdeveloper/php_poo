@@ -34,6 +34,17 @@
 	if($vaiChover){
 		echo 'Vai chover';
 	}
+	print '<br>';
+	
+	$carro = new stdClass;
+	$carro->modelo = 'Palio';
+	$carro->ano = '2013';
+	$carro->cor = 'Branca';
+	
+	print_r($carro);
+	print '<br>';
+	print $carro->modelo;
+	
 	
 ?>
 <!DOCTYPE html>
