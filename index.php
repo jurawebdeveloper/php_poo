@@ -5,6 +5,7 @@
 	$vetor = array('Palio','Gol','Fiesta','Corsa');
 	var_dump($vetor);
 	print '<br>';
+	echo '<pre>';
 	print_r($vetor);
 	print '<br>';
 	$variavel = 'nome';
@@ -27,6 +28,12 @@
 	echo $c;
 	print '<br>';
 	print '<br>';
+	
+	$umidade = 91;
+	$vaiChover = ($umidade > 90);
+	if($vaiChover){
+		echo 'Vai chover';
+	}
 	
 ?>
 <!DOCTYPE html>
