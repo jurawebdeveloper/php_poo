@@ -45,6 +45,15 @@
 	print '<br>';
 	print $carro->modelo;
 	
+	print '<br> <p> Passagem de parametros: </p>';
+	function incrementa(&$variavel, $valor){
+		$variavel += $valor;
+	}
+	
+	$a = 10;
+	incrementa($a, 20);
+	
+	echo $a;
 	
 ?>
 <!DOCTYPE html>
