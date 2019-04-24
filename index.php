@@ -81,6 +81,16 @@
 	}
 	ola('Joel','Ana','Bob','Bia');
 	print '<br>';
+	
+	function fatorial($num){
+		if($num == 1){
+			return $num;
+		} else {
+			return $num * fatorial($num - 1);
+		}
+	}
+	echo fatorial(5);
+	echo fatorial(1);
 	print '<br>';
 	
 ?>
@@ -91,3 +101,18 @@
 		<title>index php poo</title>
 	</head>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
