@@ -92,6 +92,19 @@
 	echo fatorial(5);
 	echo fatorial(1);
 	print '<br>';
+	print '<br>';
+	
+	$fp = fopen ("teste.txt","w");
+	fwrite ($fp, "linha1".PHP_EOL);
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
 	
 ?>
 <!DOCTYPE html>
