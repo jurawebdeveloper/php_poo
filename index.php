@@ -72,6 +72,16 @@
 			print 'i não é 0, nem 1 e nem 2';
 	}
 	print '<br>';
+	function ola(){
+		$argumentos = func_get_args();
+		$qtd = func_num_args();
+		for ($n = 1; $n < $qtd; $n ++){
+			echo 'Olá ' . $argumentos[$n] . ' ,';
+		}
+	}
+	ola('Joel','Ana','Bob','Bia');
+	print '<br>';
+	print '<br>';
 	
 ?>
 <!DOCTYPE html>
