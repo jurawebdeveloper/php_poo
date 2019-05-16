@@ -99,6 +99,12 @@
 	}
 	print '<br>';
 	print '<br>';
+	$origem = "tmp/file.txt";
+	$destino = "tmp/file2.txt";
+	if (copy($origem, $destino))
+		echo "cópia efetuada.";
+	else
+		echo "cópia não efetuada.";
 	print '<br>';
 	print '<br>';
 	print '<br>';
