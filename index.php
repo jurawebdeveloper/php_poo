@@ -92,6 +92,23 @@
 	echo fatorial(5);
 	echo fatorial(1);
 	print '<br>';
+	//array file (string $filename[,...])
+	$arquivo = file ("tmp/file.txt");
+	foreach ($arquivo as $linha) {
+		print $linha;
+	}
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
 	
 ?>
 <!DOCTYPE html>
