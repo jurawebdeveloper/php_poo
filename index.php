@@ -113,11 +113,25 @@
 		echo "Renomeado com sucesso.";
 	else
 		echo "não renomeado.";
-		
+
 	print '<br>';
 	print '<br>';
+/*
+	$arquivo = "tmp/file3.txt";
+	if (unlink($arquivo))
+		echo "arquivo apagado";
+	else
+		"arquivo não apagado";
+*/
 	print '<br>';
 	print '<br>';
+
+	$arquivo = "tmp/file3.txt";
+	if (file_exists($arquivo))
+		echo "arquivo existe";
+	else
+		echo "arquivo não encontrado";
+
 	print '<br>';
 	print '<br>';
 	print '<br>';
