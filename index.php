@@ -107,6 +107,13 @@
 		echo "cópia não efetuada.";
 	print '<br>';
 	print '<br>';
+	$origem = "tmp/file2.txt";
+	$destino = "tmp/file3.txt";
+	if (rename($origem, $destino))
+		echo "Renomeado com sucesso.";
+	else
+		echo "não renomeado.";
+		
 	print '<br>';
 	print '<br>';
 	print '<br>';
