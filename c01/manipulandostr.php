@@ -22,9 +22,23 @@
 	$a = 1234;
 	echo "O salário é $a";
 	print '<br>';
+	echo "Seu nome é \"Paulo\".<br>";
+	echo 'Seu nome é "Paulo".';
 	print '<br>';
+	echo strtoupper('Convertendo para maiúsculas.').'<br>';
+	echo strtolower('CONVERTENDO PARA MINUSCULAS');
 	print '<br>';
+	$string = 'Americana';
+	print substr($string,1). '<br>';
+	print substr($string,1,3). '<br>';
+	print substr($string,0,-1). '<br>';
+	print substr($string,-2). '<br>';
 	print '<br>';
+	
+	$texto = 'The Beatles';
+	print str_pad($texto, 20,"*", STR_PAD_LEFT) . "<br>\n";
+	print str_pad($texto, 20,"*", STR_PAD_BOTH) . "<br>\n";
+	print str_pad($texto, 20,"*") . "<br>\n";
 	print '<br>';
 	print '<br>';
 	print '<br>';
