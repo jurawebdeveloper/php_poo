@@ -40,7 +40,11 @@
 	print str_pad($texto, 20,"*", STR_PAD_BOTH) . "<br>\n";
 	print str_pad($texto, 20,"*") . "<br>\n";
 	print '<br>';
+	$txt = ".oO00Oo.";
+	print str_repeat($txt,5) ."<br>";
+	print "O comprimento da string é " . strlen($txt)."<br>";
 	print '<br>';
+	print str_replace('Rato', 'Leão', 'O Rato roeu a roupa do rei de roma');
 	print '<br>';
 	print '<br>';
 	print '<br>';
@@ -54,3 +58,26 @@
 	print '<br>';
 	print '<br>';
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
