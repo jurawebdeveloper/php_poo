@@ -134,6 +134,30 @@
 
 	print '<br>';
 	print '<br>';
+	$arquivo = "tmp/file3.txt";
+	if (is_file($arquivo))
+		echo "é arquivo";
+	else 
+		echo "não é arquivo";
+
+	print '<br>';
+
+	$dir = "tmp/diretorio";
+	if(mkdir($dir, 0777))
+		echo "diretório criado";
+	else 
+		"diretório não criado";
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
 	print '<br>';
 	print '<br>';
 	
