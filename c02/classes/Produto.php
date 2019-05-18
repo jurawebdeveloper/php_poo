@@ -15,11 +15,11 @@ class Produto {
 		if (is_numeric($preco) AND $preco > 0) {
 			$this->preco = $preco;
 		}
-		print "Construído: Objeto {$descricao} <br>";
+		//print "Construído: Objeto {$descricao} <br>";
 	}
 	
 	public function __destruct() {
-		print "Destruído: Objeto {$this->descricao} <br>";
+		//print "Destruído: Objeto {$this->descricao} <br>";
 	}
 	
 	public function getDescricao() {
@@ -33,6 +33,14 @@ class Produto {
 	public function getEstoque() {
 		return $this->estoque;
 	}
+	
+	public function setFabricante(Fabricante $f) {
+		$this->fabricante = $f;
+	}
+	public function getFabricante() {
+		return $this->fabricante;
+	}
+	
 	
 	
 	
