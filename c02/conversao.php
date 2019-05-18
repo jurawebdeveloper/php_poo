@@ -17,10 +17,18 @@ print_r($vetor1); print '<br>';
 $prod2 = (object) $vetor1;
 print_r($prod2); 
 print '<br>';
-$prod3 = array();
-$prod3['descricao'] = 'Cacau';
-$prod3['estoque'] = 100;
-$prod3['preco'] = 7;
+$produto = array();
+$produto['descricao'] = 'Cacau';
+$produto['estoque'] = 100;
+$produto['preco'] = 7;
+
+$objeto = new stdClass;
+foreach ($produto as $chave => $valor){
+	$objeto->$chave = $valor;
+}
+print_r($produto);
+print '<br>';
+print_r($objeto);
 print '<br>';
 print '<br>';
 print '<br>';
