@@ -58,6 +58,22 @@
 	array_push($cores, "lilás");
 	print_r($cores);
 	print '<br>';
+	array_shift($cores);
+	array_pop($cores);
+	print_r($cores);
+	print '<br>';
+
+	$coresRev = array_reverse($cores, true);
+	print_r($coresRev);
+	print '<br>';
+	$coresMerg = array_merge($cores, $coresRev);
+	print_r($coresMerg);
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
+	print '<br>';
 	print '<br>';
 	print '<br>';
 	print '<br>';
