@@ -15,5 +15,17 @@ var_dump($p1);
 print '<br>';
 var_dump($p2);
 
+print '<br>';
+print '<br>';
+
+print "O estoque de {$p1->descricao} é {$p1->estoque}<br>";
+print "O preco de {$p1->descricao} é {$p1->preco}<br>";
+
+$p1->aumentarEstoque(11);
+$p1->reajustarPreco(20);
+
+print "O estoque de {$p1->descricao} é {$p1->estoque}<br>";
+print "O preco de {$p1->descricao} é {$p1->preco}<br>";
+
 
 ?>
