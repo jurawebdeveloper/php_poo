@@ -92,10 +92,79 @@
 	echo fatorial(5);
 	echo fatorial(1);
 	print '<br>';
+	//array file (string $filename[,...])
+	$arquivo = file ("tmp/file.txt");
+	foreach ($arquivo as $linha) {
+		print $linha;
+	}
 	print '<br>';
-	
-	$fp = fopen ("teste.txt","w");
-	fwrite ($fp, "linha1".PHP_EOL);
+	print '<br>';
+	$origem = "tmp/file.txt";
+	$destino = "tmp/file2.txt";
+	if (copy($origem, $destino))
+		echo "cópia efetuada.";
+	else
+		echo "cópia não efetuada.";
+	print '<br>';
+	print '<br>';
+	$origem = "tmp/file2.txt";
+	$destino = "tmp/file3.txt";
+	if (rename($origem, $destino))
+		echo "Renomeado com sucesso.";
+	else
+		echo "não renomeado.";
+
+	print '<br>';
+	print '<br>';
+/*
+	$arquivo = "tmp/file3.txt";
+	if (unlink($arquivo))
+		echo "arquivo apagado";
+	else
+		"arquivo não apagado";
+*/
+	print '<br>';
+	print '<br>';
+
+	$arquivo = "tmp/file3.txt";
+	if (file_exists($arquivo))
+		echo "arquivo existe";
+	else
+		echo "arquivo não encontrado";
+
+	print '<br>';
+	print '<br>';
+	$arquivo = "tmp/file3.txt";
+	if (is_file($arquivo))
+		echo "é arquivo";
+	else 
+		echo "não é arquivo";
+
+	print '<br>';
+
+	$dir = "tmp/diretorio";
+	if(mkdir($dir, 0777))
+		echo "diretório criado";
+	else 
+		"diretório não criado";
+	print '<br>';
+	$dir = "tmp/diretorio";
+	if (rmdir($dir))
+		echo "diretório apagado";
+	else	
+		echo "diretório não apagado";
+	print '<br>';
+	$diretorio = "C:";
+	if (is_dir($diretorio)){
+		$linhas = scandir($diretorio);
+		foreach ($linhas as $linha){
+			print $linha . '<br>' .PHP_EOL;
+		}
+
+	}
+
+	print '<br>';
+	print '<br>';
 	print '<br>';
 	print '<br>';
 	print '<br>';
@@ -112,7 +181,17 @@
 	<head>
 		<meta charset = 'utf-8'/>
 		<title>index php poo</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
 	</head>
+	<body>
+		<h1 id="header"><a href="../../index.html">PHP - Programando com Orientação a Objetos</a></h1>
+		<table>
+		  <tr>
+			<td>1</td>
+			<td><a href="c01/index.html">The ABC of Programming</a></td>
+		  </tr>
+		</table>
+	</body>
 </html>
 
 
