@@ -27,4 +27,10 @@ print "O preco de {$p1->getDescricao()} é {$p1->getPreco()}<br>";
 unset($p1);
 unset($p2);
 
+$prod1 = new StdClass;
+$prod1->descricao = 'Chocolate Amargo';
+$prod1->estoque = 100;
+$prod1->preco = 7;
+
+print_r($prod1);
 ?>
