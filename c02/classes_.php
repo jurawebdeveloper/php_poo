@@ -1,9 +1,15 @@
 <?php
 include 'classes/Produto.php';
 
-$p1 = new Produto('Chocolate',10,5);
-$p2 = new Produto('Café',20,4);
+$p1 = new Produto;
+$p1->setDescricao('Chocolate');
+$p1->setEstoque(10);
+$p1->setPreco(7);
 
+$p2 = new Produto;
+$p1->setDescricao('Cafe');
+$p1->setEstoque(20);
+$p1->setPreco(4);
 
 
 
@@ -23,8 +29,5 @@ $p1->reajustarPreco(20);
 print "O estoque de {$p1->getDescricao()} é {$p1->getEstoque()}<br>";
 print "O preco de {$p1->getDescricao()} é {$p1->getPreco()}<br>";
 
-
-unset($p1);
-unset($p2);
 
 ?>

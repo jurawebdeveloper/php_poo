@@ -5,31 +5,39 @@ class Produto {
 	private $preco;
 	
 	
-	public function __construct($descricao, $estoque, $preco) {
+	public function setDescricao($descricao) {
 		if (is_string($descricao)) {
 			$this->descricao = $descricao;
 		}
-		if (is_numeric($estoque) AND $estoque > 0) {
-			$this->estoque = $estoque;
-		}
-		if (is_numeric($preco) AND $preco > 0) {
-			$this->preco = $preco;
-		}
-		print "Construído: Objeto {$descricao} <br>";
-	}
-	
-	public function __destruct() {
-		print "Destruído: Objeto {$this->descricao} <br>";
-	}
-	
+	}	
 	public function getDescricao() {
 		return $this->descricao;
 	}
-		
+	
+	
+	
+	
+	
+	
+	public function setPreco($preco) {
+		if (is_numeric($preco) AND $preco > 0) {
+			$this->preco = $preco;
+		}
+	}
 	public function getPreco() {
 		return $this->preco;
-	}	
+	}
 	
+	
+	
+	
+	
+	
+	public function setEstoque($estoque) {
+		if (is_numeric($estoque) AND $estoque > 0) {
+			$this->estoque = $estoque;
+		}
+	}	
 	public function getEstoque() {
 		return $this->estoque;
 	}
