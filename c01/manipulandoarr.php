@@ -69,14 +69,44 @@
 	$coresMerg = array_merge($cores, $coresRev);
 	print_r($coresMerg);
 	print '<br>';
+	
+	print_r(array_keys($cores));
+	print '<br>array_values<br>';
+	print_r(array_values($cores));
 	print '<br>';
-	print '<br>';
-	print '<br>';
-	print '<br>';
-	print '<br>';
-	print '<br>';
-	print '<br>';
-	print '<br>';
+	print 'Quantidade: ' .count($cores);
+	print '<br>in_array<br>';
+	
+	if (in_array('rosa',$cores)) {
+		echo 'cor encontrada';
+	} else 
+		echo 'cor não encontrada';
+	
+	print '<br>sort<br>';
+	
+	sort($cores);
+	print_r($cores);
+	rsort($cores);
+	
+	print '<br>asort<br>';
+	
+	asort($cores);
+	print_r($cores);
+	
+	print '<br>ksort<br>';
+	
+	ksort($cores);
+	print_r($cores);
+	
+	print '<br>explode<br>';
+	
+	$string2 = "10/05/2019";
+	print_r($string2);
+	$array2 =(explode("/",$string2)); print '<br>';
+	print_r($array2);
+	$arrayImplod = (implode('/', $array2));
+	print_r($arrayImplod);
+	
 ?>
 
 
