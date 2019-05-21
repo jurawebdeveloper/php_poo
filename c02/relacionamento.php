@@ -46,6 +46,8 @@ $c1->addItem($p3);
 print_r($c1);
 
 print '<br>';
+
+print '<h2>Herança</h2>';
 print '<br>';
 
 ?>
