@@ -1,5 +1,5 @@
 <?php
-class COnta {
+class Conta {
 	protected $agencia;
 	protected $conta;
 	protected $saldo;
@@ -14,7 +14,7 @@ class COnta {
     }
 
     public function getInfo() {
-        return "Agencia: {$this->agencia}, COnta: {$this->conta}";
+        return "Agencia: {$this->agencia}, Conta: {$this->conta}";
     }
 
     public function depositar($quantia) {
