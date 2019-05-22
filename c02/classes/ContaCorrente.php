@@ -7,5 +7,12 @@ class ContaCorrente extends Conta {
         $this->limite = $limite;
     }
 
-    
+    public function retirar($quantia) {
+        if (($this->saldo + $this->limite) >= $quantia) {
+            $this->saldo -= $quantia;
+        } else {
+            return false; //retirada nao permitida
+        }
+        return true; //retirada permitida
+    }
 }?>
