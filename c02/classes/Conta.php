@@ -1,5 +1,5 @@
 <?php
-class Conta {
+abstract class Conta {
 	protected $agencia;
 	protected $conta;
 	protected $saldo;
@@ -26,6 +26,8 @@ class Conta {
     public function getSaldo() {
         return $this->saldo;
     }
+
+    abstract function retirar($quantia);
 	
 }
 
