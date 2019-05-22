@@ -33,6 +33,7 @@ if($p2->setNascimento('2015-12-30')) {
 echo '<pre';
 print_r($p2);
 
+print '<h3><a href="protected.php">protected.php</a></h3>';
 print '<br>';
 print '<br>';
 print '<br>';
