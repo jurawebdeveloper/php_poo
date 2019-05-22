@@ -1,7 +1,7 @@
 <?php
 class Pessoa {
-    public $nome;
-    public $endereco;
-    public $nascimento;    
+    private $nome;
+    private $endereco;
+    private $nascimento;    
 }
 ?>
