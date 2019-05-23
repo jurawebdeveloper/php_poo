@@ -4,10 +4,10 @@
  <h2>protected</h2>
 <?php
 class Pessoa {
-	private $nome;
+	protected $nome;
 	
 	public function __construct($nome){
-		$this->nome = nome;
+		$this->nome = $nome;
 	}
 }
 
@@ -30,7 +30,7 @@ $f1 = new Funcionario('Maria da Silva');
 $f1->contrata("Gerente", 1600);
 
 
-echo '<pre';
+//echo '<pre';
 print_r($f1);
 
 
