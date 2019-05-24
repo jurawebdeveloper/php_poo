@@ -2,7 +2,7 @@
 class Orcamento {
     private $itens;
     
-    public function adiciona(Produto $produto, $qtde){
+    public function adiciona(OrcavelInterface $produto, $qtde){
         $this->itens[] = array($qtde, $produto);
     }
     public function calculaTotal(){
@@ -12,6 +12,10 @@ class Orcamento {
         }
         return $total;
     }
+
+    public function getPreco() {
+		return $this->preco;
+	}
 	
 }
 
