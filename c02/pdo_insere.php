@@ -1,6 +1,6 @@
 <?php
 //conecta PostgreSql
-/*
+
     try{
         $conn = new PDO('pgsql:dbname=livro; user=postgres; password=1234; host=localhost');
         $conn->exec("DELETE FROM famosos");
@@ -11,11 +11,5 @@
     }
     catch(PDOExeption $e) {
         print "Erro!:"."\n";
-    }
-*/
-
-try{
-    
-}
-    
+    }    
 ?>

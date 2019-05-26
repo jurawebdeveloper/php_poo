@@ -2,6 +2,7 @@
 // abre conexão com Postgres
 $conn = pg_connect("host=localhost port=5432 dbname=livro user=postgres password='1234'");
 // insere vários registros
+pg_query($conn, "CREATE TABLE famosos (codigo integer, nome varchar(60))");
 pg_query($conn, "INSERT INTO famosos (codigo, nome) VALUES (1, 'Érico Veríssimo')");
 pg_query($conn, "INSERT INTO famosos (codigo, nome) VALUES (2, 'John Lennon')");
 pg_query($conn, "INSERT INTO famosos (codigo, nome) VALUES (3, 'Mahatma Gandhi')");
