@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -30,10 +26,8 @@
             
             <label>Cidade</label>
             <select name="id_cidade" style="width: 25%">
-            <?php
-            require_once 'lista_combo_cidades.php';
-            print lista_combo_cidades();
-            ?>
+                <option value = 99>selecione uma cidade</option>
+                <?php require_once 'lista_combo_cidades.php'; print lista_combo_cidades(); ?>
             </select>
             <input type="submit">
         </form>
