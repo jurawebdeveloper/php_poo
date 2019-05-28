@@ -1,7 +1,7 @@
 <?php
 function lista_combo_cidades($id = null) {
     $output = '';
-    
+  /*  
     $conn = mysqli_connect('127.0.0.1', 'root', '', 'livro');
 // define a consulta que será realizada
 $query = 'SELECT id, nome FROM cidade';
@@ -15,10 +15,11 @@ $output .= "<option value = '{$row['id']}'> {$row['nome']}</option>";
 }
 mysqli_close($conn); // fecha a conexão
 return $output;
+  
+*/
     
-    /*
-    
-    $dsn = "host=localhost port=5432 dbname=livro user=postgres password=";
+    //EXEMPLO DO LIVRO
+    $dsn = "host=localhost port=5432 dbname=livro user=postgres password=1234";
     $conn = pg_connect($dsn);
     $query = 'SELECT id, nome FROM cidade';
     $result = pg_query($conn, $query);
@@ -30,6 +31,6 @@ return $output;
     }
     pg_close($conn);
     return $output;
-    */
+    
 }
 ?>
