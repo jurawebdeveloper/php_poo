@@ -13,7 +13,9 @@
         $conn = mysqli_connect('127.0.0.1','root','','livro');
         if($_REQUEST['action'] == 'edit') {
             $id = (int) $_GET['id'];
+            //print $id; exit;
             $result = mysqli_query($conn, "SELECT * FROM pessoa WHERE id='{$id}'");
+            
             if($row = mysqli_fetch_assoc($result)) {
                 $id = $row['id'];
                 $nome = $row['nome'];
@@ -33,10 +35,27 @@
             $email = $_POST['email'];
             $id_cidade = $_POST['id_cidade'];
 
-            if()
+            if(empty($_POST['id'])) {
+                $result = mysqli_query($conn, "SELECT MAX(id) as lastId FROM pessoa");
+                $next = (int) mysqli_fetch_assoc($result)['lastId'] + 1;
+                $sql = "INSERT INTO pessoa (id, nome, endereco, bairro, telefone, email, id_cidade)
+                VALUES ('{$next}', '{$nome}', '{$endereco}', '{$bairro}', '{$telefone}', '{$email}', '{$id_cidade}')";
+                $result = mysqli_query($conn, $sql);
+            }
+            else {
+                $sql = "UPDATE pessoa SET nome = '{$nome}',
+                endereco = '{$endereco}',
+                bairro = '{$bairro}',
+                telefone = '{$telefone}',
+                email = '{$email}',
+                id_cidade = '{$id_cidade}'
+                WHERE id = '{$id}'";
+                $result = mysqli_query($conn, $sql);
+            }
+            print ($result) ? 'Registro salvo com sucesso' : mysqli_error($conn);
+            mysqli_close($conn);
         }
     }
-    
 ?>
     <form enctype="multipart/form-data" method="post" action="pessoa_form.php?action=save">
         <label>Código</label>
