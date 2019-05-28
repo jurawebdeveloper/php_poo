@@ -3,6 +3,8 @@
 $dados = $_POST;
 
 //EXEMPLO POSTGRES
+
+/*
 $dados = $_POST;
 $dsn = "host=localhost port=5432 dbname=livro user=postgres password=1234";
 $conn = pg_connect($dsn);
@@ -31,8 +33,11 @@ else {
 print pg_last_error($conn);
 }
 pg_close($conn);
+*/
 
-/* EXEMPLO COM MYSQL
+// EXEMPLO COM MYSQL
+
+
 $dsn = "'127.0.0.1', 'root', '', 'livro'";
 $conn = mysqli_connect('127.0.0.1', 'root', '', 'livro');
 $result = mysqli_query($conn, "SELECT max(id) as next FROM pessoa");
@@ -65,5 +70,5 @@ print mysqli_last_error($conn);
 mysqli_close($conn);
 
 
-*/
+
 ?>

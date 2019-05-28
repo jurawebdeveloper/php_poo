@@ -6,9 +6,13 @@
 </head>
 <body>
     <?php
-        $dsn = "host=localhost port=5432 dbname=livro user=postgres password=1234";
+        /*$dsn = "host=localhost port=5432 dbname=livro user=postgres password=1234";
         $conn = pg_connect($dsn);
         $result = pg_query($conn, "SELECT * FROM pessoa ORDER BY id");
+        */
+        $conn = mysqli_connect('127.0.0.1','root','','livro');
+        $result = mysqli_query($conn, "SELECT * FROM pessoa ORDER BY id");
+        
         print '<table border=1>';
         print '<thead>';
         print '<tr>';
@@ -23,7 +27,10 @@
         print '</thead>';
 
         print '<tbody>';
-        while ($row = pg_fetch_assoc($result)) {
+        //while ($row = pg_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            
+            
             $id = $row['id'];
             $nome = $row['nome'];
             $endereco = $row['endereco'];
@@ -31,6 +38,7 @@
             $telefone = $row['telefone'];
             $email = $row['email'];
             $id_cidade = $row['id_cidade'];
+            //montando cada <tr>
             print '<tr>';
             print "<td align='center'>
             <a href='pessoa_form_edit.php?id={$id}'>
