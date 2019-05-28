@@ -32,6 +32,8 @@
             $telefone = $_POST['telefone'];
             $email = $_POST['email'];
             $id_cidade = $_POST['id_cidade'];
+
+            if()
         }
     }
     
