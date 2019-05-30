@@ -1,4 +1,5 @@
 <?php
+//verificar por que fetch_all não funciona
 function lista_pessoas(){
     $conn = mysqli_connect('127.0.0.1','root','','livro');
     $result = mysqli_query($conn,"SELECT * FROM pessoa ORDER BY id");
