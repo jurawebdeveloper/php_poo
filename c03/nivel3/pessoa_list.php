@@ -5,8 +5,7 @@
         $result = mysqli_query($conn,"DELETE FROM pessoa WHERE id = '{$id}'");
     }
     $result = mysqli_query($conn,"SELECT * FROM pessoa ORDER BY id");
-    $row = mysqli_fetch_assoc($result);
-    echo '<pre>'; print_r($row); exit;
+    //$row = mysqli_fetch_assoc($result); echo '<pre>'; print_r($row); exit;
     $items = '';
     while($row = mysqli_fetch_assoc($result)){
         $item = file_get_contents('html/item.html');
@@ -19,6 +18,6 @@
         $items = $item;
     }
     $list = file_get_contents('html/list.html');
-$list = str_replace('{items}', $items, $list);
-print $list;
+    $list = str_replace('{items}', $items, $list);
+    print $list;
 ?>
