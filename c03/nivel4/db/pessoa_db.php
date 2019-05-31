@@ -3,7 +3,7 @@
 function lista_pessoas(){
     $conn = mysqli_connect('127.0.0.1','root','','livro');
     $result = mysqli_query($conn,"SELECT * FROM pessoa ORDER BY id");
-    $list = mysqli_fetch_all($result);
+    $list = mysqli_fetch_all($result, MYSQLI_ASSOC);
     mysqli_close($conn);
     return $list;
 }
