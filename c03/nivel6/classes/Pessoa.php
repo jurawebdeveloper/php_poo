@@ -51,4 +51,33 @@ class Pessoa {
 
             ]);
     }
+    public static function find($id){
+            $conn = self::getConnection();
+            
+            $result = $conn->prepare("SELECT * FROM pessoa WHERE id=:id");
+            $result->execute([':id'=>$id]);
+            return $result->fetch();
+    }
+
+     public static function delete($id){
+            $conn = self::getConnection();
+            
+            $result = $conn->prepare("DELETE FROM pessoa WHERE id=:id");
+            $result->execute([':id'=>$id]);
+    }
+      
+    public static function all(){
+        $conn = self::getConnection();
+        $result = $conn->query("SELECT * FROM pessoa ORDER BY id");
+        return $result->fetchAll();
+    }
+
+
+
+
+
+
+
+
+
 }
