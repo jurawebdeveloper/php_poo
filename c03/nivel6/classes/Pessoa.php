@@ -2,7 +2,7 @@
 class Pessoa {
     private static $conn;
     public static function getConnection(){
-        if(empty(self::conn)){
+        if(empty(self::$conn)){
             $conexao = parse_ini_file('config/livro.ini');
             $host = $conexao['host'];
             $name = $conexao['name'];
