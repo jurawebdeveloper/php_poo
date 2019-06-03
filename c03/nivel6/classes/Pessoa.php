@@ -16,7 +16,7 @@ class Pessoa {
         }
         return self::$conn;
     }
-        public function save($pessoa){
+        public static function save($pessoa){
         $conn = self::getConnection();
 
         if(empty($pessoa['id'])){
@@ -36,7 +36,7 @@ class Pessoa {
             bairro = :bairro,
             telefone = :telefone,
             email = :email,
-            id_cidade = :id_cidade,
+            id_cidade = :id_cidade
             WHERE id = :id";
         }
         $result = $conn->prepare($sql);
