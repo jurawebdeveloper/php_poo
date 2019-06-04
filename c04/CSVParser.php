@@ -9,21 +9,23 @@ class CSVParser{
     }
     public function parse(){
         if(!file_exists($this->filename)){
-            die("Arquivo {$this->filename} não existe");
+            throw new Exception("Arquivo {$this->filename} não encontrado.");
         }
         if(!is_readable($this->filename)){
-            die("Arquivo {$this->filename} sem permissão.");
+            throw new Exception("Arquivo {$this->filename} não pode ser lido.");
         }
         $this->data = file($this->filename);
         $this->header = str_getcsv($this->data[0],$this->separator);
+        return true;
     }
     public function fetch() {
-        if (isset($this->data[$this->counter])) {
-            $row = str_getcsv($this->data[$this->counter ++], $this->separator);
-            foreach ($row as $key => $value) {
-                $row[ $this->header[$key] ] = $value;
-            }
-            return $row;
-        }
+        if (isset($this->data[$this->counter])) 
+        { 
+            $row = str_getcsv($this->data[$this->counter ++], $this->separator); 
+            foreach ($row as $key => $value) { 
+                $row[ $this->header[$key] ] = $value; 
+            } 
+            return $row; 
+        } 
     }
 }
