@@ -8,6 +8,12 @@ class CSVParser{
         $this->counter = 1;
     }
     public function parse(){
+        if(!file_exists($this->filename)){
+            die("Arquivo {$this->filename} não existe");
+        }
+        if(!is_readable($this->filename)){
+            die("Arquivo {$this->filename} sem permissão.");
+        }
         $this->data = file($this->filename);
         $this->header = str_getcsv($this->data[0],$this->separator);
     }
