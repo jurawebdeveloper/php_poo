@@ -1,10 +1,13 @@
 <?php 
-class Titulo{
+class Titulo
+{
     private $data;
     
-    public function __get($propriedade){
-        if($propriedade == 'valor'){
-            return $this->this->getValor();
+    public function __get($propriedade)
+    {
+        if($propriedade == 'valor')
+        {
+            return $this->getValor();
         }else{
             return $this->$data[$propriedade];
         }
@@ -16,16 +19,39 @@ class Titulo{
             $interval = $vecto->diff($agora);
             $days = $interval->days;
             return $this->data['valor'] + $this->data['multa'] + ($this->data['valor']*$this->data['juros']*$days);
+        }else {
+            return $this->data['valor'];
+        }
+    }
+    public function __set($propriedade, $valor) {
+        if ($propriedade == 'dt_vencimento') {
+            $this->setVencimento($valor);
+        } else {
+            $this->data[$propriedade] = $valor;
+        }
+    }
+
+    public function setVencimento($vencimento) {
+        $partes = explode('-', $vencimento);
+        if (count($partes)==3) {
+            if (checkdate ( $partes[1] , $partes[2] , $partes[0] )) {
+                $this->data['dt_vencimento'] = $vencimento;
+            } else {
+                throw new Exception("Data {$vencimento} inválida");
+            }
         }
     }
 
     
 
 }
-
-$titulo = new Titulo;
-$titulo->dt_vencimento = '2015-05-20';
-$titulo->valor = 12345;
-$titulo->juros = 0.1;
-$titulo->multa = 2;
-print 'O conteúdo do título é: ' .$titulo;
+try{
+    $titulo = new Titulo;
+    $titulo->dt_vencimento = '2015-05-20';
+    $titulo->valor = 12345;
+    $titulo->multa = 2;
+    $titulo->juros = 0.1;
+    print 'O valor é: ' . number_format($titulo->valor,2, ',', '.');
+} catch(Exception $e) {
+    print $e->getMessage();
+}
