@@ -1,5 +1,5 @@
 <?php 
-$xml = simplexml_load_file('paises3.xml');
+$xml = simplexml_load_file('paises4.xml');
     echo 'Nome : ' . $xml->nome . "<br>\n";
     echo 'Idioma : ' . $xml->idioma . "<br>\n";
     echo "<br>\n";
