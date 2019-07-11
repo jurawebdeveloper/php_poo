@@ -1,5 +1,6 @@
 <?php
 require_once 'classes/Record.php';
+
 class Pessoa extends Record{
 	const TABLENAME = 'pessoas';
 }
