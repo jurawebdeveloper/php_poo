@@ -18,3 +18,4 @@ $p->nome = 'Maria da Silva';
 $p->endereco = 'Rua das flores';
 $p->numero = '123';
 print $p->toJSON();
+print '<br>';
