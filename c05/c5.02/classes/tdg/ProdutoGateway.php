@@ -11,7 +11,7 @@ class ProdutoGateway{
 		return $result->fetchObject($class);
 	}
 	public function all($filter,$class = 'stdClass'){
-		$sql = "SELECT * FROM produto";
+		$sql = "SELECT * FROM produto ";
 		if($filter){
 			$sql .="WHERE $filter";
 		}
@@ -39,12 +39,12 @@ class ProdutoGateway{
 		}else{
 			$sql = "UPDATE produto SET descricao = '{$data->descricao}',".
 			"estoque = '{$data->estoque}',".
-			"estoque = '{$data->preco_custo}',".
-			"estoque = '{$data->preco_venda}',".
-			"estoque = '{$data->codigo_barras}',".
-			"estoque = '{$data->data_cadastro}',".
-			"estoque = '{$data->origem}'".
-			"WHERE id = '{$data->id}'";
+			"preco_custo = '{$data->preco_custo}',".
+			"preco_venda = '{$data->preco_venda}',".
+			"codigo_barras = '{$data->codigo_barras}',".
+			"data_cadastro = '{$data->data_cadastro}',".
+			"origem = '{$data->origem}'".
+			" WHERE id = '{$data->id}'";
 		}
 		print "$sql <br>\n";
 		return self::$conn->exec($sql); // executa instrução SQL
