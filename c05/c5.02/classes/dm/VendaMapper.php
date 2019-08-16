@@ -2,9 +2,9 @@
 class VendaMapper{
 	private static $conn;
 	public static function setConnection(PDO $conn){
-		self::conn = $conn;
+		self::$conn = $conn;
 	}
-	public static function save(Venda, $venda){
+	public static function save(Venda $venda){
 		$date = date("Y-m-d");
 		$sql = "INSERT INTO venda (data_venda) VALUES($date)";
 		print $sql."<br>\n";
@@ -14,10 +14,18 @@ class VendaMapper{
 
 		foreach ($venda->getItens() as $item) {
 			$quantidade = $item[0];
-			$produto  $item[1];
+			$produto = $item[1];
 			$preco = $produto->preco;
 
-			$sql = ""
+			$sql = "INSERT INTO item_venda (id_venda, id_produto, quantidade, preco)"."VALUES ('$id','$produto->id','$quantidade','$preco')";
+			print $sql."<br>\n";
+			self::$conn->query($sql);
 		}
+	}
+	private static function getLastId(){
+		$sql = "SELECT MAX(id) AS max FROM venda";
+		$result = self::$conn->query($sql);
+		$data = $result->fetch(PDO::FETCH_OBJ);
+		return $data->max;
 	}
 }
