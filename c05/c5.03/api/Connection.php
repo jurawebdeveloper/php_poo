@@ -1,26 +1,38 @@
 <?php
-require_once 'classes/dm/Produto.php';
-require_once 'classes/dm/Venda.php';
-require_once 'classes/dm/VendaMapper.php';
+final class Connection{
 
-try{
-	$p1 = new Produto;
-	$p1->id = 1;
-	$p1->preco = 12;
-	
-	$p2 = new Produto;
-	$p2->id = 2;
-	$p2->preco = 14;
-	
-	$venda= new Venda;
-	$venda->addItem(10,$p1);
-	$venda->addItem(20,$p2);
-	$conn = new PDO('mysql:host=localhost;dbname=estoque', 'root', '');
-	$conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-	VendaMapper::setConnection($conn);
+	private function __construct(){}
+	public static function open($name){
+		if(file_exists("config/{$name}.ini")){
+			$db = parse_ini_file("config/{$name}.ini");
+		}
+		else{
+			throw new Exception("Arquivo '$name' não encontrado");
+		}
+		$user = isset($db['user']) ? $db['user'] : NULL;
+		$pass = isset($db['pass']) ? $db['pass'] : NULL;
+		$name = isset($db['name']) ? $db['name'] : NULL;
+		$host = isset($db['host']) ? $db['host'] : NULL;
+		$type = isset($db['type']) ? $db['type'] : NULL;
+		$port = isset($db['port']) ? $db['port'] : NULL;
 
-	VendaMapper::save($venda);
-}
-catch (Exception $e) {
-print $e->getMessage();
+		switch($type){
+			case 'pgsql':
+			$port = $port ? $port : '5432';
+			$conn = new PDO("pgsql:dbname={$name}; user={$user}; password={$pass}; host=$host;port={$port}");
+			break;
+
+			case 'mysql':
+			$port = $port ? $port : '3306';
+			$conn = new PDO("mysql:host={$host};port={$port};dbname={$name}",$user, $pass);
+			break;
+
+		}
+
+
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		return $conn;
+		
+	}
+	
 }
