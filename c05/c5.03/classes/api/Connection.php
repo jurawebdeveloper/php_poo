@@ -19,12 +19,13 @@ final class Connection{
 		switch($type){
 			case 'pgsql':
 			$port = $port ? $port : '5432';
-			$conn = new PDO("pgsql:dbname={$name}; user={$user}; password={$pass}; host=$host;port={$port}");
+			$conn = new PDO("pgsql:dbname={$name}; user={$user}; password={$pass}; host=$host; port={$port}");
 			break;
 
 			case 'mysql':
 			$port = $port ? $port : '3306';
-			$conn = new PDO("mysql:host={$host};port={$port};dbname={$name}",$user, $pass);
+			$conn = new PDO("mysql:host={$host};dbname={$name}",$user, $pass);
+			//$conn = new PDO('mysql:host=localhost;dbname=estoque', 'root', '');
 			break;
 
 		}
