@@ -1,5 +1,6 @@
 <?php
 class Produto{
+	private static $conn;
 	private $data;
 	function __get($prop){
 		return $this->data[$prop];
@@ -7,12 +8,14 @@ class Produto{
 	function __set($prop, $value){
 		$this->data[$prop] = $value;
 	}
-	
+	public static function setConnection(PDO $conn){
+		self::$conn = $conn;
+		
+	}
 	public static function find($id){
 		$sql = "SELECT * FROM produto WHERE id = '$id'";
 		print "$sql<br>\n";
-		$conn = Transaction::get();
-		$result = $conn->query($sql);
+		$result = self::$conn->query($sql);
 		return $result->fetchObject(__CLASS__);
 	}
 	public static function all($filter = ''){
@@ -54,8 +57,7 @@ class Produto{
 		"WHERE id = '{$this->id}'";
 		}
 		print "$sql <br>\n";
-		$conn = Transaction::get();
-		return $conn->exec($sql);
+		return self::$conn->exec($sql); // executa instrução SQL
 	}
 	
 	private function getLastId(){
