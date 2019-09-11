@@ -1,14 +1,14 @@
 <?php
-require_once 'classes/ar/Produto.php';
+require_once 'classes/ar/Produto_OLD.php';
 require_once 'classes/api/Connection.php';
 require_once 'classes/api/Transaction.php';
 print 'Teste...';
 try{
 	Transaction::open('estoque');
 	$conn = Transaction::get();
-	Produto::setConnection($conn);
+	Produto_OLD::setConnection($conn);
 
-	$p1 = new Produto;
+	$p1 = new Produto_OLD;
 	$p1->descricao = 'Vinho Brasileiro';
 	$p1->estoque = 10;
 	$p1->preco_custo = 12;
@@ -19,7 +19,7 @@ try{
 	$p1->save();
 
 	//throw new Exception('Exceção proposital');
-	$p2 = new Produto;
+	$p2 = new Produto_OLD;
 	$p2->descricao = 'Vinho Importado';
 	$p2->estoque = 10;
 	$p2->preco_custo = 18;

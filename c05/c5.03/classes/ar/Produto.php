@@ -15,20 +15,7 @@ class Produto{
 		$result = $conn->query($sql);
 		return $result->fetchObject(__CLASS__);
 	}
-	public static function all($filter = ''){
-		$sql = "SELECT * FROM produto ";
-		if ($filter) {
-			$sql .= "where $filter";
-		}
-		print "$sql <br>\n";
-		$result = self::$conn->query($sql);
-		return $result->fetchAll(PDO::FETCH_CLASS, __CLASS__);
-	}
-	public function delete() {
-		$sql = "DELETE FROM produto where id = '{$this->id}' ";
-		print "$sql <br>\n";
-		return self::$conn->query($sql);
-	}
+	
 	public function save() {
 		if (empty($this->data['id'])) {
 		$id = $this->getLastId() +1;
@@ -60,15 +47,9 @@ class Produto{
 	
 	private function getLastId(){
 		$sql = "SELECT MAX(id) AS max FROM produto";
-		$result = self::$conn->query($sql);
+		$conn = Transaction::get();
+		$result = $conn->query($sql);
 		$data = $result->fetch(PDO::FETCH_OBJ);
-		return $data->max; 
-	}
-	public function getMargemLucro() {
-		return (($this->preco_venda-$this->preco_custo) / $this->preco_custo) * 100;
-	}
-	public function registraCompra($custo, $quantidade) {
-		$this->custo = $custo;
-		$this->estoque += $quantidade;
+		return $data->max;
 	}
 }

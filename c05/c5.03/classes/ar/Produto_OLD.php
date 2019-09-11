@@ -1,5 +1,5 @@
 <?php
-class Produto{
+class Produto_OLD{
 	private static $conn;
 	private $data;
 	function __get($prop){
