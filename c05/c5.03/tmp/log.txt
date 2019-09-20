@@ -1,2 +1,2 @@
-2019-09-12 11:39:47 :: Inserindo produto novo
-2019-09-12 11:39:47 :: INSERT INTO produto (id, descricao, estoque, preco_custo,  preco_venda, codigo_barras, data_cadastro, origem) VALUES ('16', 'cHOCOLATE', '80', '4', '7', '68323453234234', '2019-09-12', 'N')
+2019-09-20 13:36:28 :: Inserindo produto novo
+2019-09-20 13:36:28 :: INSERT INTO produto (id, descricao, estoque, preco_custo,  preco_venda, codigo_barras, data_cadastro, origem) VALUES ('11', 'cHOCOLATE', '80', '4', '7', '68323453234234', '2019-09-20', 'N')
