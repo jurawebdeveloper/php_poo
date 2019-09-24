@@ -27,7 +27,28 @@ abstract class Record{
 			}
 		}
 	}
-
+	public function __get($prop){
+		if(method_exists($this, 'get_'.$prop)){
+			return call_user_func(array($this,'get_'.$prop));
+		}else{
+			if(isset($this->data[$prop])){
+				return $this->data[$prop];
+			}
+		}
+	}
+	public function __isset($prop){
+		return isset($this->data[$prop]);
+	}
+	private function getEntity(){
+		$class = get_class($this);
+		return constant("{$class}::TABLENAME");
+	}
+	public function fromArray($data){
+		$this->data=$data;
+	}
+	public function toArray(){
+		return $this->data;
+	}
 
 
 
