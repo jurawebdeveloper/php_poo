@@ -49,6 +49,37 @@ abstract class Record{
 	public function toArray(){
 		return $this->data;
 	}
+	public function store(){
+		$prepared = $this->prepare($this->data);
+		if(empty($this->data['id']) or (!$this->load($this->id))){
+			if(empty($this->data['id'])){
+				$this->id = $this->getLast()+1;
+				$prepared['id']=$this->id;
+			}
+			$sql = "INSERT INTO {$this->getEntity()}".
+			'('.implode(',',array_keys($prepared)).')'.
+			'values'.
+			'('.implode(','.array_values($prepared)).')';
+		}else{
+			$sql = "UPDATE {$this->getEntity()}";
+			if($prepared){
+				foreach($prepared as $column=>$value){
+					if($column !=='id'){
+						$set[] = "{$column} = {$value}";
+					}
+				}
+			}
+			$sql .= 'SET'.implode(',',$set);
+			$sql .= 'WHERE id='.(int) $this->data['id'];
+		}
+		if($conn = Transaction::get()){
+			Transaction::log($sql);
+			$result = $conn->exec($sql);
+			return $result;
+		}else{
+			throw new Exception('Não há transação ativa!!');
+		}
+	}
 
 
 
