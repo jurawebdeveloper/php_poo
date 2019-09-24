@@ -110,8 +110,46 @@ abstract class Record{
 		}
 	}
 
+	public static function find($id){
+		$classname  get_called_class();
+		$ar = new $classname;
+		return $ar->load($id);
+	}
 
+	ptivate function getLast(){
+		if($conn = Transaction::get()){
+			$sql = "SELECT MAX(id) FROM {$this->getEntity()}";
+			Transaction::log($sql);
+			$result = $conn->query($sql);
+			$row = $result->fetch();
+			return $row[0];
+		}else{
+			throw new Exception('Não há transação ativa!!');
+		}
+	}
 
+	public function prepare($data){
+		$prepare = array();
+		foreach($data as $key => $value){
+			if(is_scalar($value)){
+				$prepared[$key] = $this->escape($value);
+			}
+		}
+		return $prepared;
+	}
+
+	public function escape($value){
+		if(is_string($value) and (!empty($value))){
+			$value = addslashes($value);
+			return "'$value;'";
+		}else if(is_bool($value)){
+			return $value ? 'TRUE':'FALSE';
+		}else if($value!==''){
+			return $value;
+		}else{
+			return "NULL";
+		}
+	}
 
 
 }
