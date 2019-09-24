@@ -81,6 +81,35 @@ abstract class Record{
 		}
 	}
 
+	public function load($id){
+		$sql = "SELECT * FROM {$this->getEntity()}";
+		$sql .= 'WHERE id = '.(int)$id;
+		if($conn = Transaction::get()){
+			Transaction::log($sql);
+			$result = $conn->query($sql);
+			if($result){
+				$object = $result->fetchObject(get_class($this));
+			}
+			return $object;
+		}else{
+			throw new Exception('Não há transação ativa!!');
+		}
+	}
+
+	public function delete($id = NULL){
+		$id = $id ? $id:$this->id;
+		$sql = "DELETE FROM {$this->getEntity()}";
+		$sql .= 'WHERE id = '.(int)$this->data['id'];
+
+		if($conn = Transaction::get()){
+			Transaction::log($sql);
+			$result = $conn->exec($sql);
+			return $result;
+		}else{
+			throw new Exception('Não há transação ativa!!');
+		}
+	}
+
 
 
 
