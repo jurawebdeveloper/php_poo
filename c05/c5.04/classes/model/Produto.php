@@ -1,4 +1,4 @@
 <?php
-abstract class Produto{
-	
+class Produto extends Record{
+	const TABLENAME = 'produto';
 }

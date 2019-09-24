@@ -50,16 +50,21 @@ abstract class Record{
 		return $this->data;
 	}
 	public function store(){
+//echo '<pre>'; print_r($this->data); exit;
 		$prepared = $this->prepare($this->data);
+		
+//echo '<pre>'; print_r($values); exit;
 		if(empty($this->data['id']) or (!$this->load($this->id))){
 			if(empty($this->data['id'])){
 				$this->id = $this->getLast()+1;
 				$prepared['id']=$this->id;
+				$values = str_replace(";", "", implode(',',array_values($prepared))) ;
 			}
 			$sql = "INSERT INTO {$this->getEntity()}".
 			'('.implode(',',array_keys($prepared)).')'.
 			'values'.
-			'('.implode(','.array_values($prepared)).')';
+			'('.$values.')'; //tive que tratar os "values" pois o prepare() está colocando ponto e virgula nos valores string exemplo "Cerveja;'
+//echo '<pre>'; print_r($sql); exit;
 		}else{
 			$sql = "UPDATE {$this->getEntity()}";
 			if($prepared){

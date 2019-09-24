@@ -1,0 +1,3 @@
+2019-09-24 13:51:28 :: Inserindo produto novo
+2019-09-24 13:51:28 :: SELECT MAX(id) FROM produto
+2019-09-24 13:51:28 :: INSERT INTO produto(descricao,estoque,preco_custo,preco_venda,codigo_barras,data_cadastro,origem,id)values('Cerveja',51,9,13,'75363453234234','2019-09-24','N',18)
