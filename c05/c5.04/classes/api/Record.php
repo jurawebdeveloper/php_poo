@@ -111,12 +111,12 @@ abstract class Record{
 	}
 
 	public static function find($id){
-		$classname  get_called_class();
+		$classname = get_called_class();
 		$ar = new $classname;
 		return $ar->load($id);
 	}
 
-	ptivate function getLast(){
+	private function getLast(){
 		if($conn = Transaction::get()){
 			$sql = "SELECT MAX(id) FROM {$this->getEntity()}";
 			Transaction::log($sql);
