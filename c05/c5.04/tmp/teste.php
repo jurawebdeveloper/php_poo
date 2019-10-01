@@ -1,1 +1,0 @@
-<?php $message = 'teste2'; ?>

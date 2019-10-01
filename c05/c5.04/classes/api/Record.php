@@ -108,7 +108,7 @@ abstract class Record{
 	public function delete($id = NULL){
 		$id = $id ? $id:$this->id;
 		$sql = "DELETE FROM {$this->getEntity()}";
-		$sql .= 'WHERE id = '.(int)$this->data['id'];
+		$sql .= ' WHERE id = '.(int)$this->data['id'];
 
 		if($conn = Transaction::get()){
 			Transaction::log($sql);
