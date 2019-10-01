@@ -1,2 +1,4 @@
-2019-10-01 16:06:01 :: Protegndo acesso a um produto
-2019-10-01 16:06:01 :: SELECT * FROM produto WHERE id = 14
+2019-10-01 17:16:21 :: Protegndo acesso a um produto
+2019-10-01 17:16:21 :: SELECT * FROM produto WHERE id = 14
+2019-10-01 17:16:22 :: SELECT * FROM produto WHERE id = 14
+2019-10-01 17:16:22 :: UPDATE produto  SET descricao = 'Cerveja',estoque = '200',preco_custo = '9',preco_venda = '13',codigo_barras = '75363453234234',data_cadastro = '2019-09-24',origem = 'N' WHERE id = 14

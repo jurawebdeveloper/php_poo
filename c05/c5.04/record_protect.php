@@ -12,8 +12,8 @@ try{
 	Transaction::log('Protegndo acesso a um produto');
 
     $p1 = Produto::find(14);
-    $p1->estoque = 'dois';
-    $pi->store();
+    $p1->estoque = '200';
+    $p1->store();
 	
     Transaction::close();
 	
