@@ -66,16 +66,20 @@ abstract class Record{
 			'('.$values.')'; //tive que tratar os "values" pois o prepare() está colocando ponto e virgula nos valores string exemplo "Cerveja;'
 //echo '<pre>'; print_r($sql); exit;
 		}else{
-			$sql = "UPDATE {$this->getEntity()}";
+			$sql = "UPDATE {$this->getEntity()} ";
 			if($prepared){
 				foreach($prepared as $column=>$value){
 					if($column !=='id'){
 						$set[] = "{$column} = {$value}";
+						
+
 					}
 				}
 			}
-			$sql .= 'SET'.implode(',',$set);
-			$sql .= 'WHERE id='.(int) $this->data['id'];
+			$sql .= ' SET '.implode(',',$set);
+			$sql .= ' WHERE id = '.(int) $this->data['id'];
+			$sql = str_replace(";", "",$sql); //tive que tratar os "$sql" pois o prepare() está colocando ponto e virgula nos values string
+			//echo "<pre>"; print_r($sql); exit;
 		}
 		if($conn = Transaction::get()){
 			Transaction::log($sql);
