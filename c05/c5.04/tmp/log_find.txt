@@ -1,0 +1,2 @@
+2019-10-01 09:45:33 :: Buscando um produto
+2019-10-01 09:45:33 :: SELECT * FROM produto WHERE id = 16

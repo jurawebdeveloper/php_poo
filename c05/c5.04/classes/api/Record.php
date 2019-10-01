@@ -88,7 +88,7 @@ abstract class Record{
 
 	public function load($id){
 		$sql = "SELECT * FROM {$this->getEntity()}";
-		$sql .= 'WHERE id = '.(int)$id;
+		$sql .= ' WHERE id = '.(int)$id;
 		if($conn = Transaction::get()){
 			Transaction::log($sql);
 			$result = $conn->query($sql);

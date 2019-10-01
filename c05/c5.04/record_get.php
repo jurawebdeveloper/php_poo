@@ -7,7 +7,13 @@ require_once 'classes/api/Record.php';
 require_once 'classes/model/Produto.php';
 print '<p>Teste...</p>';
 try{
-	
+	Transaction::open('estoque');
+	Transaction::setLogger(new LoggerTXT('tmp/log_find.txt'));
+	Transaction::log('Buscando um produto');
+
+	$p1 = Produto::find(16);
+	print $p1->descricao;
+	Transaction::close();
 
 
 }catch (Exception $e){
