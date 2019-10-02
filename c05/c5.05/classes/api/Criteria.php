@@ -25,10 +25,32 @@ class Criteria{
 		}elseif (is_null($value)) {
 			$result = 'NULL';
 		}elseif (is_bool($value)) {
-			$result = $value ? 'TRUE' ; 'FALSE';
+			$result = $value ? 'TRUE' : 'FALSE';
 		}else{
 			$result = $value;
 		}
 		return $result;
+	}
+	public function dump(){
+		if(is_array($this->filters) and count($this->filters) > 0){
+			$result = '';
+			foreach ($this->filters as $filter) {
+				$result .= $filter[3] . ' ' . $filter[0] . ' ' . $filter[1] . ' '. $filter[2] . ' ';
+			}
+			$result = trim($result);
+			return "({$result})";
+		}
+	}
+	public function setProperty($property, $value){
+		if(isset($value)){
+			$this->properties[$property] = $value;
+		}else{
+			$this->properies[$property] = NULL;
+		}
+	}
+	public function getProperty($property){
+		if (isset($this->properties[$property])){
+			return $this->properties[$property];
+		}
 	}
 }
