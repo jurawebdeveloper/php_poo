@@ -53,7 +53,7 @@ INSERT INTO `item_venda` (`id`, `id_produto`, `id_venda`, `quantidade`, `preco`)
 --
 
 CREATE TABLE `produto` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `descricao` text DEFAULT NULL,
   `estoque` float DEFAULT NULL,
   `preco_custo` float DEFAULT NULL,
