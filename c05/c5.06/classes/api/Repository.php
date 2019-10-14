@@ -26,7 +26,7 @@ final class Repository{
 				$sql .= ' OFFSET '.$offset;
 			}
 		}
-		IF ($conn = Transaction::get()){
+		if ($conn = Transaction::get()){
 			Transaction::log($sql);
 			$result = $conn->Query($sql);
 			$results = array();
@@ -43,6 +43,44 @@ final class Repository{
 	function delete(Criteria $criteria){
 		$expression = $criteris->dump();
 		$sql = "DELETE FROM " .constant($this->activeRecord.'::TABLENAME');
+		if($expression){
+			$sql .= ' WHERE '.$expression;
+		}
+		if ($conn = Transaction::get()){
+			Transaction::log($sql);
+			$result = $conn->Query($sql);
+			$results = array();
+			if($result){
+				while($row = $result->fetchObject($this->activeRecord)){
+					$results[]=$row;
+				}
+			}
+			return $results;
+		}else{
+			throw new Exception('Não há transação ativa!!');
+		}
+	}
+
+	function count(Criteria $criteria){
+		$expression = $criteris->dump();
+		$sql = " SELECT COUNT(*) FROM " .constant($this->activeRecord.'::TABLENAME');
+		if ($expression) {
+			$sql .= ' WHERE ' . $expression;
+		}
+		if ($conn = Transaction::get()){
+			Transaction::log($sql);
+			$result = $conn->Query($sql);
+			$results = array();
+			if($result){
+				while($row = $result->fetchObject($this->activeRecord)){
+					$results[]=$row;
+				}
+			}
+			return $results;
+		}else{
+			throw new Exception('Não há transação ativa!!');
+		}
+
 	}
 
 
