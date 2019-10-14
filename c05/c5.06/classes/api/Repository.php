@@ -10,7 +10,7 @@ final class Repository{
 		if($criteria){
 			$expression = $criteria->dump();
 			if($expression){
-				$sql .= 'WHERE '.$expression;
+				$sql .= ' WHERE '.$expression;
 			}
 			$order = $criteria->getProperty('order');
 			$limit = $criteria->getProperty('limit');
@@ -62,7 +62,7 @@ final class Repository{
 	}
 
 	function count(Criteria $criteria){
-		$expression = $criteris->dump();
+		$expression = $criteria->dump();
 		$sql = " SELECT COUNT(*) FROM " .constant($this->activeRecord.'::TABLENAME');
 		if ($expression) {
 			$sql .= ' WHERE ' . $expression;

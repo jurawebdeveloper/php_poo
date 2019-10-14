@@ -1,0 +1,2 @@
+2019-10-14 16:25:17 :: SELECT * FROM produto WHERE (estoque > 10 and origem = 'N')
+2019-10-14 16:25:17 ::  SELECT COUNT(*) FROM produto WHERE (estoque > 10 and origem = 'N')
